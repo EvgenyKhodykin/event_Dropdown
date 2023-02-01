@@ -18,7 +18,7 @@ class CustomSelect {
     }
 
     render(container) {
-        const dropdown = createDropdown(this.id, this.#options)
+        const dropdown = createDropdown(this.#id, this.#options)
         container.append(dropdown)
         
         const dropdownButton = container.querySelector('.select-dropdown__button')
