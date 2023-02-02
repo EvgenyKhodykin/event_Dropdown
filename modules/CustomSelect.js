@@ -23,7 +23,8 @@ class CustomSelect {
         
         const dropdownButton = container.querySelector('.select-dropdown__button')
         const dropdownList = container.querySelector('.select-dropdown__list')
-        const nodeText = container.querySelector('.select-dropdown__text') 
+        const nodeText = container.querySelector('.select-dropdown__text')
+        const allLists = container.querySelectorAll('.select-dropdown__list-item') 
         
         const switchList = () => {
             if (!this.#isActive) dropdownList.classList.add('active')       
@@ -37,6 +38,11 @@ class CustomSelect {
             const itemDataValue = clickedItem.dataset.value
             this.#currentSelectedOption = this.#options.filter(item => item.value == itemDataValue)[0]
             nodeText.innerText = this.#selectedValue.text
+            allLists.forEach(list => {
+                if(list.dataset.value !== itemDataValue) {
+                    list.classList.remove('selected')
+                }
+            })
             switchList()
         }    
 
